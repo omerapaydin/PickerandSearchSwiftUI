@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct SearchableK: View {
+    
+    @State private var aramaKelimesi = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack{
+            VStack{
+                
+            }.navigationTitle("Ara")
+        } .searchable(text: $aramaKelimesi,prompt: "Ara")
+            .onChange(of: aramaKelimesi){ _,s in
+                print("Arama Sonucu: \(s)")
+            }
     }
 }
 
